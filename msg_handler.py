@@ -24,7 +24,7 @@ class TakePicutreHandler(MsgHandler):
 			return msg.text == 'pic'
 		except:
 			return False
-
+	
 
 class TulingHandler(MsgHandler):
 	def __init__(self):

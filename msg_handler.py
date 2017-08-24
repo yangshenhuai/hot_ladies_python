@@ -2,7 +2,7 @@
 # coding: utf-8
 from wxpy import *
 import img
-
+import serial_port 
 
 
 class MsgHandler:
@@ -24,7 +24,17 @@ class TakePicutreHandler(MsgHandler):
 			return msg.text == 'pic'
 		except:
 			return False
-	
+class TemperatureHandler(MsgHandler):
+	def handle(self,msg):
+		if(serial_port.currentTemp is None):
+			msg.reply('Not capture temperature yet.' )
+		else:
+			msg.reply('current temperature is ' +  serial_port.currentTemp )
+	def match(self,msg):
+		try:
+			return msg.text == 'temp'
+		except:
+			return False
 
 class TulingHandler(MsgHandler):
 	def __init__(self):

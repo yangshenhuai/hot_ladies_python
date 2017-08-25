@@ -36,6 +36,18 @@ class TemperatureHandler(MsgHandler):
 		except:
 			return False
 
+class LightHandler(MsgHandler):
+	def handle(self,msg):
+		if(serial_port.currentLight is None):
+			msg.reply('Not capture light data yet.')
+		else:
+			msg.reply('current light is ' + serial_port.currentLight)
+	def match(self,msg):
+		try:
+			return msg.text == 'light'
+		except:
+			return False
+
 class TulingHandler(MsgHandler):
 	def __init__(self):
 		self.tuling = Tuling(api_key='43132241d9524efc897bbf0129b23fd8')			

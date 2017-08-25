@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 bot = Bot(console_qr=True)
 bot.enable_puid()
 master = bot.friends().search(sex=MALE)[0]
-handlers = [msg_handler.TakePicutreHandler(),msg_handler.TemperatureHandler() , msg_handler.TulingHandler()]
+handlers = [msg_handler.TakePicutreHandler(),msg_handler.TemperatureHandler() ,msg_handler.LightHandler(), msg_handler.TulingHandler()]
 
 
 @bot.register(msg_types=TEXT, except_self=False)
